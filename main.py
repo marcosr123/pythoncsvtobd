@@ -27,11 +27,9 @@ def conecta():
 
     csv_read = csv.reader(file("teste1.csv"))
 
-    update(cursor_local,csv_read)
+    print select(cursor_local)
+
     commit_local()
     print "Done"
 
-if url_ok():
-    sincroniza()
-else:
-    print "Deu erro!"
+conecta()

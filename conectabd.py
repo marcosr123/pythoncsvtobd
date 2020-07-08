@@ -1,4 +1,5 @@
 import pymysql
+from pymysql.cursors import DictCursor
 
 mydb_local = None
 mydb_remote = None
@@ -6,7 +7,7 @@ mydb_remote = None
 
 def conecta_local():
     global mydb_local 
-    mydb_local = pymysql.connect(host='192.168.4.94', port=3306, user='root', passwd='', db='test')
+    mydb_local = pymysql.connect(host='192.168.4.94', port=3306, user='root', passwd='', db='test',cursorclass=DictCursor)
     return mydb_local.cursor()
 
 def conecta_remoto():
