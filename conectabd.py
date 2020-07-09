@@ -11,7 +11,7 @@ def conecta_local():
 
 def conecta_remoto():
     global mydb_remote 
-    mydb_remote = pymysql.connect(host='*******',port=3306,user='*******',passwd='*******',db='srtma06')
+    mydb_remote = pymysql.connect(host='mysql.srtma.net',port=3306,user='srtma06',passwd='SEAPTESTE20',db='srtma06')
     return mydb_remote.cursor()
 
 def commit_local():
