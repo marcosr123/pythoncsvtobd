@@ -4,9 +4,8 @@ import csv
 import pymysql
 import os.path
 
-from conectabd import *
-from testeconexao import  *
-from querys import *
+#from conectabd import *
+#from testeconexao import  *
 
 
 import time, threading
@@ -21,15 +20,19 @@ def sincroniza():
 
 
 def conecta():
-    cursor_local = conecta_local()
+    #cursor_local = conecta_local()
 
-    cursor_remoto = conecta_remoto()
+    #cursor_remoto = conecta_remoto()
 
-    csv_read = csv.reader(file("teste1.csv"))
+    f = open("teste1.csv",'r')
 
-    print select(cursor_local)
+    csv_read = csv.DictReader(f, delimiter=",")
+    for row in csv_read:
+        print row
 
-    commit_local()
+    #print select(cursor_local)
+
+    #commit_local()
     print "Done"
 
 conecta()
