@@ -1,11 +1,10 @@
-# -*- coding: UTF-8 -*-
 
 import csv
 import pymysql
 import os.path
-
-#from conectabd import *
-#from testeconexao import  *
+import conectabd as cnt
+import testeconexao as tst
+from querys import *
 
 
 import time, threading
@@ -20,19 +19,19 @@ def sincroniza():
 
 
 def conecta():
-    #cursor_local = conecta_local()
+    cursor_local = cnt.conecta_local()
 
-    #cursor_remoto = conecta_remoto()
+    cursor_remoto = cnt.conecta_remoto()
 
     f = open("teste1.csv",'r')
 
     csv_read = csv.DictReader(f, delimiter=",")
     for row in csv_read:
-        print row
+        print(row)
 
-    #print select(cursor_local)
+    
 
-    #commit_local()
-    print "Done"
+    cnt.commit_local()
+    print("Done")
 
 conecta()

